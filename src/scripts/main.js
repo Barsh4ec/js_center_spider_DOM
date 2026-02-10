@@ -1,16 +1,19 @@
 'use strict';
 
-const wall = document.querySelector('.wall');
+const wall = document.querySelector('.wall'); 
 const spider = document.querySelector('.spider');
 
-wall.style.position = 'relative';
+if (!wall || !spider) return;
 
-const wallRect = wall.getBoundingClientRect();
-const spiderRect = spider.getBoundingClientRect();
+window.addEventListener('load', () => {
+  const wallRect = wall.getBoundingClientRect();
+  const spiderRect = spider.getBoundingClientRect();
 
-const centerX = (wallRect.width - spiderRect.width) / 2;
-const centerY = (wallRect.height - spiderRect.height) / 2;
+  const centerX = (wallRect.width - spiderRect.width) / 2;
+  const centerY = (wallRect.height - spiderRect.height) / 2;
 
-spider.style.position = 'absolute';
-spider.style.left = `${centerX}px`;
-spider.style.top = `${centerY}px`;
+  spider.style.position = 'absolute';
+  spider.style.left = `${centerX}px`;
+  spider.style.top = `${centerY}px`;
+});
+
